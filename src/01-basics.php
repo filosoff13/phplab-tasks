@@ -12,6 +12,16 @@
  */
 function getMinuteQuarter(int $minute)
 {
+    if ($minute > 0 && $minute < 16) {
+        return "first";
+    } elseif ($minute > 15 && $minute < 31) {
+        return "second";
+    } elseif ($minute > 30 && $minute < 46) {
+        return "third";
+    } elseif (($minute > 45 && $minute <= 59) || $minute === 0) {
+        return "fourth";
+    } else throw new InvalidArgumentException("invalid argument was:" . $minute);
+
 }
 
 /**
@@ -27,6 +37,12 @@ function getMinuteQuarter(int $minute)
  */
 function isLeapYear(int $year)
 {
+    if ($year < 1900){
+        throw new InvalidArgumentException("input year is lower than 1900");
+    }
+    if (($year % 4 === 0 && $year % 100 !== 0) || $year % 400 === 0){
+        return true;
+    } else return false;
 }
 
 /**
@@ -42,4 +58,24 @@ function isLeapYear(int $year)
  */
 function isSumEqual(string $input)
 {
+    $input_len = strlen($input);
+    if ($input_len > 6){
+       throw new InvalidArgumentException("invalid argument");
+    } elseif ($input_len < 6){
+        return 'input variable is not equal 6';
+    } else {
+        $arr = str_split($input);
+        $sum1 = 0;
+        $sum2 = 0;
+
+        for ($i = 0; $i < 6 ; $i++)
+        {
+            if ($i < 3){
+                $sum1 += $arr[$i];
+            } else{
+                $sum2 += $arr[$i];
+            }
+        }
+        return ($sum1 === $sum2);
+    }
 }

@@ -6,6 +6,8 @@ class GetMinuteQuarterTest extends TestCase
 {
     /**
      * @dataProvider positiveDataProvider
+     * @param $minute
+     * @param $expected
      */
     public function testPositive($minute, $expected)
     {
