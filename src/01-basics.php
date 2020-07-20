@@ -21,7 +21,6 @@ function getMinuteQuarter(int $minute)
     } elseif (($minute > 45 && $minute <= 59) || $minute === 0) {
         return "fourth";
     } else throw new InvalidArgumentException("invalid argument was:" . $minute);
-
 }
 
 /**
@@ -40,9 +39,7 @@ function isLeapYear(int $year)
     if ($year < 1900){
         throw new InvalidArgumentException("input year is lower than 1900");
     }
-    if (($year % 4 === 0 && $year % 100 !== 0) || $year % 400 === 0){
-        return true;
-    } else return false;
+    return ($year % 4 === 0 && $year % 100 !== 0) || $year % 400 === 0;
 }
 
 /**
