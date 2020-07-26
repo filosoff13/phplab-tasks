@@ -69,7 +69,6 @@ function groupByTag(array $input)
         foreach ($value['tags'] as $tag)
             $arr[$tag][] = $value['name'];
     }
-    ksort($arr);
     foreach ($arr as &$value) {
         sort($value);
     }
