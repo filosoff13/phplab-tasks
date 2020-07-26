@@ -4,9 +4,14 @@ use PHPUnit\Framework\TestCase;
 
 class SayHelloArgumentTest extends TestCase
 {
-    public function testPositive($arg, $expected)
+    /**
+     * @dataProvider positiveDataProvider
+     * @param $input
+     * @param $expected
+     */
+    public function testPositive($input, $expected)
     {
-        $this->assertEquals($expected, sayHelloArgument($arg));
+        $this->assertEquals($expected, sayHelloArgument($input));
     }
 
     public function positiveDataProvider()
