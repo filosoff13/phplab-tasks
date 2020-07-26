@@ -10,38 +10,11 @@
  */
 function repeatArrayValues(array $input)
 {
-    $count = count($input);
     $arr = [];
-    for ($i = 0; $i < $count; $i++){
-       switch ($input[$i]){
-           case 1:
-               array_push($arr, 1);
-               break;
-           case 2:
-               array_push($arr, 2, 2);
-               break;
-           case 3:
-               array_push($arr, 3, 3, 3);
-               break;
-           case 4:
-               array_push($arr, 4, 4, 4, 4);
-               break;
-           case 5:
-               array_push($arr, 5,5,5,5,5);
-               break;
-           case 6:
-               array_push($arr, 6,6,6,6,6,6);
-               break;
-           case 7:
-               array_push($arr, 7,7,7,7,7,7,7);
-               break;
-           case 8:
-               array_push($arr, 8,8,8,8,8,8,8,8);
-               break;
-           case 9:
-               array_push($arr, 9,9,9,9,9,9,9,9,9);
-               break;
-       }
+    foreach ($input as $value) {
+        for ($i = 0; $i < $value; $i++){
+            $arr[] = $value;
+        }
     }
     return $arr;
 }
@@ -56,20 +29,13 @@ function repeatArrayValues(array $input)
  */
 function getUniqueValue(array $input)
 {
-    if (empty($input)){
-        return 0;
-    }
-    $count = count($input);
     $arr = [];
-    for ($i = 0; $i < $count; $i++){
-        if (array_count_values($input)[$input[$i]] === 1){
-            $arr[] = $input[$i];
+    foreach (array_count_values($input) as $key => $value) {
+        if ($value == 1) {
+            $arr[] = $key;
         }
     }
-    if (empty($arr)){
-        return 0;
-    }
-    return min($arr);
+    return empty($arr)? 0 : min($arr);
 }
 
 /**
