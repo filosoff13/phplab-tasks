@@ -69,10 +69,16 @@ function countArguments()
  * You will need to use "Argument unpacking via ..." to pass the parameters to wrapped function:
  * @see https://www.php.net/manual/en/migration56.new-features.php#migration56.new-features.splat
  *
+ * @param array $arg
  * @return array
- * @throws InvalidArgumentException
  */
-function countArgumentsWrapper()
+function countArgumentsWrapper(...$arg): array
 {
-    // put your code here
+    for ($i = 0; $i < count($arg); $i++) {
+        if (!is_string($arg[$i])) {
+            throw new InvalidArgumentException("$arg[$i] is not string,You need to pass string Argument");
+        }
+    }
+
+    return countArguments($arg);
 }
