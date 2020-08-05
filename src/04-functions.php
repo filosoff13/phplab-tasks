@@ -35,16 +35,12 @@ function sayHelloArgument($arg)
  */
 function sayHelloArgumentWrapper($arg)
 {
-    // put your code here
     if (!is_numeric($arg) || !is_string($arg) || !is_bool($arg)){
-        return new InvalidArgumentException();
+        throw  new InvalidArgumentException('Not valid argument. Try use arg. type: number, string or bool');
     }
     return sayHelloArgument($arg);
 }
 
-function my_callback_function() {
-    echo 'hello world!';
-}
 /**
  * Create a PhpUnit test (CountArgumentsTest) which will check that function below returns correct result
  * Check how it works with: no arguments, one string argument, a couple of string arguments

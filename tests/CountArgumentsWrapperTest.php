@@ -6,6 +6,7 @@ class CountArgumentsWrapperTest extends TestCase
 {
     /**
      * @dataProvider positiveDataProvider
+     * @param array $input
      */
     public function testPositive(...$input)
     {

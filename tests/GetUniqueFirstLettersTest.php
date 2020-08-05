@@ -5,6 +5,8 @@ class GetUniqueFirstLettersTest extends TestCase
 {
     /**
      * @dataProvider positiveDataProvider
+     * @param $input
+     * @param $expected
      */
     public function testPositive($input, $expected)
     {
