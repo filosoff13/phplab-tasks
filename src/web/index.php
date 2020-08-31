@@ -150,6 +150,5 @@ $airports = array_slice($airports, $page - 1, $perPage);
             <?php endfor ?>
         </ul>
     </nav>
-
 </main>
 </html>
